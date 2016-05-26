@@ -49,6 +49,10 @@ class HelpscoutBeaconPlugin extends BasePlugin
         {
             craft()->templates->includeJs('
             var formId = "'. $settings->beaconFormId . '";
+            var allowedAttachments = true;
+            var selectedIcon = "message";
+            var beaconColour = "#00ff00";
+            var formInstructions = "";
             !function (e, o, n) {
                 window.HSCW = o, window.HS = n, n.beacon = n.beacon || {};
                 var t = n.beacon;
@@ -66,7 +70,15 @@ class HelpscoutBeaconPlugin extends BasePlugin
                 c.type = "text/javascript", c.async = !0, c.src = "https://djtflbt20bdde.cloudfront.net/",
                     r.parentNode.insertBefore(c, r)
             }(document, window.HSCW || {}, window.HS || {}
-            );');
+            );
+            HS.beacon.config({
+                modal: false,
+                icon: selectedIcon,
+                color: beaconColour,
+                attachment: allowedAttachments,
+                instructions: formInstructions,
+                poweredBy: false,
+            });');
         }
     }
 
