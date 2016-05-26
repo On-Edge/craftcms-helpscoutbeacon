@@ -45,7 +45,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
         $settings = $plugin->getSettings();
 
 
-        if ( craft()->request->isCpRequest() && craft()->userSession->isLoggedIn() )
+        if ( craft()->request->isCpRequest() && craft()->userSession->isLoggedIn() && $settings->beaconFormId )
         {
             craft()->templates->includeJs('
             var formId = "'. $settings->beaconFormId . '";
@@ -53,6 +53,11 @@ class HelpscoutBeaconPlugin extends BasePlugin
             var selectedIcon = "message";
             var beaconColour = "#00ff00";
             var formInstructions = "";
+            var beaconOptions = "' . $settings->beaconOptions . '";
+            
+            if(beaconOptions === "knowledgebase" || beaconOptions === "contact_docs") { var enableDocs = 1; } else { var enableDocs = 0; }
+            if(beaconOptions === "contact" || beaconOptions === "contact_docs") { var enableContact = 1; } else { var enableContact = 0; }
+            
             !function (e, o, n) {
                 window.HSCW = o, window.HS = n, n.beacon = n.beacon || {};
                 var t = n.beacon;
@@ -63,8 +68,8 @@ class HelpscoutBeaconPlugin extends BasePlugin
                         this.readyQueue.push(e)
                     },
                     o.config = {
-                        docs: {enabled: 0, baseUrl: ""},
-                        contact: {enabled: 1, formId: formId},
+                        docs: {enabled: enableDocs, baseUrl: ""},
+                        contact: {enabled: enableContact, formId: formId},
                     };
                 var r = e.getElementsByTagName("script")[0], c = e.createElement("script");
                 c.type = "text/javascript", c.async = !0, c.src = "https://djtflbt20bdde.cloudfront.net/",
@@ -211,6 +216,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
         return array(
             'beaconFormId' => array(AttributeType::String, 'label' => 'Beacon Form Id', 'default' => ''),
             'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => ''),
+            'beaconOptions' => array(AttributeType::Mixed, 'label' => 'Beacon Options', 'default' => ''),
         );
     }
 

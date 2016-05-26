@@ -33,6 +33,21 @@
     value: settings['beaconIcon'],
     options: {
         'message' : "Message",
-        'buoy' : "Bouy"
+        'buoy' : "Bouy",
+        'question': "Question",
+        'beacon': "Beacon",
+        'search': "Search"
+    }})
+}}
+
+{{ forms.selectField({
+    label: "Beacon Options"|t,
+    id: 'beaconOptions',
+    name: 'beaconOptions',
+    value: settings['beaconOptions'],
+    options: {
+        'contact' : "Contact Form",
+        'knowledgebase' : "Knowledge base search",
+        'contact_docs': "Contat form & knowledge base"
     }})
 }}
