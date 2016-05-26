@@ -40,6 +40,34 @@ class HelpscoutBeaconPlugin extends BasePlugin
      */
     public function init()
     {
+
+        $plugin = craft()->plugins->getPlugin('helpscoutbeacon');
+        $settings = $plugin->getSettings();
+
+
+        if ( craft()->request->isCpRequest() && craft()->userSession->isLoggedIn() )
+        {
+            craft()->templates->includeJs('
+            var formId = "'. $settings->beaconFormId . '";
+            !function (e, o, n) {
+                window.HSCW = o, window.HS = n, n.beacon = n.beacon || {};
+                var t = n.beacon;
+                t.userConfig = {}, t.readyQueue = [], t.config = function (e) {
+                    this.userConfig = e
+                },
+                    t.ready = function (e) {
+                        this.readyQueue.push(e)
+                    },
+                    o.config = {
+                        docs: {enabled: 0, baseUrl: ""},
+                        contact: {enabled: 1, formId: formId},
+                    };
+                var r = e.getElementsByTagName("script")[0], c = e.createElement("script");
+                c.type = "text/javascript", c.async = !0, c.src = "https://djtflbt20bdde.cloudfront.net/",
+                    r.parentNode.insertBefore(c, r)
+            }(document, window.HSCW || {}, window.HS || {}
+            );');
+        }
     }
 
     /**
