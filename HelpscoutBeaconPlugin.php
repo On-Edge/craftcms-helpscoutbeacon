@@ -69,22 +69,12 @@ class HelpscoutBeaconPlugin extends BasePlugin
      *
      * @return string
      */
-    public function getDocumentationUrl()
-    {
-        return 'https://github.com/janhenckens/helpscoutbeacon/blob/master/README.md';
-    }
+//    public function getDocumentationUrl()
+//    {
+//        return 'https://github.com/janhenckens/helpscoutbeacon/blob/master/README.md';
+//    }
 
-    /**
-     * Plugins can now take part in Craft’s update notifications, and display release notes on the Updates page, by
-     * providing a JSON feed that describes new releases, and adding a getReleaseFeedUrl() method on the primary
-     * plugin class.
-     *
-     * @return string
-     */
-    public function getReleaseFeedUrl()
-    {
-        return 'https://raw.githubusercontent.com/janhenckens/helpscoutbeacon/master/releases.json';
-    }
+
 
     /**
      * Returns the version number.
@@ -179,7 +169,8 @@ class HelpscoutBeaconPlugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-            'someSetting' => array(AttributeType::String, 'label' => 'Some Setting', 'default' => ''),
+            'beaconFormId' => array(AttributeType::String, 'label' => 'Beacon Form Id', 'default' => ''),
+            'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => ''),
         );
     }
 

@@ -17,10 +17,25 @@
 {% includeCssResource "helpscoutbeacon/css/HelpscoutBeacon_Style.css" %}
 {% includeJsResource "helpscoutbeacon/js/HelpscoutBeacon_Script.js" %}
 
+
 {{ forms.textField({
-    label: 'Some Setting',
-    instructions: 'Enter some setting here.',
-    id: 'someSetting',
-    name: 'someSetting', 
-    value: settings['someSetting']})
+    label: "Beacon Form Id"|t,
+    instructions: "Enter the ID for your Helpscout Beacon here"|t,
+    id: 'beaconFormId',
+    name: 'beaconFormId',
+    value: settings['beaconFormId']})
+}}
+
+
+
+{{ forms.selectField({
+    label: "Beacon Icon"|t,
+    id: 'beaconIcon',
+    name: 'beaconIcon',
+    value: settings['beaconIcon'],
+    options: {
+        'message' : "Message",
+        'buoy' : "Bouy"
+    }
+    })
 }}
