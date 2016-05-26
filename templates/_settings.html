@@ -1,0 +1,10 @@
+{% import "_includes/forms" as forms %}
+{{ forms.textField({
+        label: "Beacon Form ID"|t,
+        id: 'formId',
+        name: 'formId',
+        instructions: "Input your setting"|t,
+        value: settings.formId,
+        errors: settings.getErrors('formId')
+    }) 
+}}

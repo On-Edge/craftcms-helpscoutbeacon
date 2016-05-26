@@ -1,0 +1,11 @@
+/**
+ * Helpscout Beacon plugin for Craft CMS
+ *
+ * Helpscout Beacon JS
+ *
+ * @author    Jan Henckens
+ * @copyright Copyright (c) 2016 Jan Henckens
+ * @link      http://janhenckens.com
+ * @package   HelpscoutBeacon
+ * @since     1.0.0
+ */
