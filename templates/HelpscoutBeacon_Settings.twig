@@ -1,3 +1,4 @@
+
 {#
 /**
  * Helpscout Beacon plugin for Craft CMS
@@ -50,4 +51,12 @@
         'knowledgebase' : "Knowledge base search",
         'contact_docs': "Contat form & knowledge base"
     }})
+}}
+
+{{ forms.colorField({
+    label: "Beacon Color"|t,
+    id: 'beaconColor',
+    name: 'beaconColor',
+    value: settings['beaconColor']
+    })
 }}

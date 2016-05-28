@@ -44,14 +44,13 @@ class HelpscoutBeaconPlugin extends BasePlugin
         $plugin = craft()->plugins->getPlugin('helpscoutbeacon');
         $settings = $plugin->getSettings();
 
-
         if ( craft()->request->isCpRequest() && craft()->userSession->isLoggedIn() && $settings->beaconFormId )
         {
             craft()->templates->includeJs('
             var formId = "'. $settings->beaconFormId . '";
             var allowedAttachments = true;
             var selectedIcon = "message";
-            var beaconColour = "#00ff00";
+            var beaconColour = "' . $settings->beaconColor . '";
             var formInstructions = "";
             var beaconOptions = "' . $settings->beaconOptions . '";
             
@@ -217,6 +216,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
             'beaconFormId' => array(AttributeType::String, 'label' => 'Beacon Form Id', 'default' => ''),
             'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => ''),
             'beaconOptions' => array(AttributeType::Mixed, 'label' => 'Beacon Options', 'default' => ''),
+            'beaconColor' => array(AttributeType::String, 'label' => 'Beacon Color', 'default' => '00ff00'),
         );
     }
 
