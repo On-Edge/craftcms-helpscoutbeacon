@@ -213,9 +213,11 @@ class HelpscoutBeaconPlugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-            'beaconFormId' => array(AttributeType::String, 'label' => 'Beacon Form Id', 'default' => ''),
-            'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => ''),
-            'beaconOptions' => array(AttributeType::Mixed, 'label' => 'Beacon Options', 'default' => ''),
+            'beaconFormId' => array(AttributeType::String, 'label' => 'Beacon Form Id'),
+            'Documentation subdomain' => array(AttributeType::String, 'label' => 'Documentation subdomain'),
+
+            'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => "message"),
+            'beaconOptions' => array(AttributeType::Mixed, 'label' => 'Beacon Options', 'default' => "contact"),
             'beaconColor' => array(AttributeType::String, 'label' => 'Beacon Color', 'default' => "DA513D"),
             'beaconContactDescription' => array(AttributeType::String, 'Contact form description')
         );
