@@ -50,6 +50,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
             var formId = "'. $settings->beaconFormId . '";
             var allowedAttachments = true;
             var selectedIcon = "message";
+            var docsSubdomain = "' . $settings->beaconDocSubdomain . '.helpscout.net";
             var beaconColour = "' . $settings->beaconColor . '";
             var formInstructions = "' . $settings->beaconContactDescription . '";
             var beaconOptions = "' . $settings->beaconOptions . '";
@@ -67,7 +68,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
                         this.readyQueue.push(e)
                     },
                     o.config = {
-                        docs: {enabled: enableDocs, baseUrl: ""},
+                        docs: {enabled: enableDocs, baseUrl: docsSubdomain},
                         contact: {enabled: enableContact, formId: formId},
                     };
                 var r = e.getElementsByTagName("script")[0], c = e.createElement("script");
@@ -229,7 +230,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
      */
     public function getSettingsHtml()
     {
-       return craft()->templates->render('helpscoutbeacon/HelpscoutBeacon_Settings', array(
+       return craft()->templates->render('helpscoutbeacon/_index', array(
            'settings' => $this->getSettings()
        ));
     }
