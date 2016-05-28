@@ -214,8 +214,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
     {
         return array(
             'beaconFormId' => array(AttributeType::String, 'label' => 'Beacon Form Id'),
-            'Documentation subdomain' => array(AttributeType::String, 'label' => 'Documentation subdomain'),
-
+            'beaconDocSubdomain' => array(AttributeType::String, 'label' => 'Documentation subdomain'),
             'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => "message"),
             'beaconOptions' => array(AttributeType::Mixed, 'label' => 'Beacon Options', 'default' => "contact"),
             'beaconColor' => array(AttributeType::String, 'label' => 'Beacon Color', 'default' => "DA513D"),

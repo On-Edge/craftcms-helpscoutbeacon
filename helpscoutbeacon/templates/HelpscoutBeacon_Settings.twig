@@ -27,6 +27,14 @@
     value: settings['beaconFormId']})
 }}
 
+{{ forms.textField({
+    label: "Documentation subdomain"|t,
+    instructions: "If you want to use your Helpscout Knowledge base in the beacon, add your subdomain here. You don't need to include the helpscout.net part, just your subdomain."|t,
+    id: 'beaconDocSubdomain',
+    name: 'beaconDocSubdomain',
+    value: settings['beaconDocSubdomain']})
+}}
+
 {{ forms.selectField({
     label: "Beacon Icon"|t,
     id: 'beaconIcon',
