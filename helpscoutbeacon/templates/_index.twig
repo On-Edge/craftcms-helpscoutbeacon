@@ -16,15 +16,8 @@
 {% requireAdmin %}
 
 {% import "_includes/forms" as forms %}
-{% set tabs = {
-    config: { label: "Configuration"|t, url: url('cocktailrecipes') },
-    display:    { label: "Display settings"|t, url: url('cocktailrecipes/new') }
-} %}
-{% set selectedTab = 'recent' %}
+{% include "_includes/tabs" %}
 
-{% block tabs %}
-    {% include "_includes/tabs" with { tabs: tabs, selectedTab: selectedTab } only %}
-{% endblock %}
 
 
 
