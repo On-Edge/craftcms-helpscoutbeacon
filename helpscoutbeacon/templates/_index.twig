@@ -1,0 +1,93 @@
+{#
+/**
+ * Helpscout Beacon plugin for Craft CMS
+ *
+ * Helpscout Beacon Settings.twig
+ *
+ * @author    Jan Henckens
+ * @copyright Copyright (c) 2016 Jan Henckens
+ * @link      http://janhenckens.com
+ * @package   HelpscoutBeacon
+ * @since     1.0.0
+ */
+#}
+
+
+{% requireAdmin %}
+
+{% import "_includes/forms" as forms %}
+{% set tabs = {
+    config: { label: "Configuration"|t, url: url('cocktailrecipes') },
+    display:    { label: "Display settings"|t, url: url('cocktailrecipes/new') }
+} %}
+{% set selectedTab = 'recent' %}
+
+{% block tabs %}
+    {% include "_includes/tabs" with { tabs: tabs, selectedTab: selectedTab } only %}
+{% endblock %}
+
+
+
+{% includeCssResource "helpscoutbeacon/css/HelpscoutBeacon_Style.css" %}
+{% includeJsResource "helpscoutbeacon/js/HelpscoutBeacon_Script.js" %}
+
+
+{{ forms.textField({
+    label: "Beacon Form Id"|t,
+    instructions: "Enter the ID for your Helpscout Beacon here"|t,
+    id: 'beaconFormId',
+    name: 'beaconFormId',
+    value: settings['beaconFormId']})
+}}
+
+{{ forms.textField({
+    label: "Documentation subdomain"|t,
+    instructions: "If you want to use your Helpscout Knowledge base in the beacon, add your subdomain here. You don't need to include the helpscout.net part, just your subdomain."|t,
+    id: 'beaconDocSubdomain',
+    name: 'beaconDocSubdomain',
+    value: settings['beaconDocSubdomain']})
+}}
+
+{{ forms.selectField({
+    label: "Beacon Icon"|t,
+    id: 'beaconIcon',
+    name: 'beaconIcon',
+    value: settings['beaconIcon'],
+    options: {
+        'message' : "Message",
+        'buoy' : "Bouy",
+        'question': "Question",
+        'beacon': "Beacon",
+        'search': "Search"
+    }})
+}}
+
+{{ forms.selectField({
+    label: "Beacon Options"|t,
+    id: 'beaconOptions',
+    name: 'beaconOptions',
+    value: settings['beaconOptions'],
+    options: {
+        'contact' : "Contact Form",
+        'knowledgebase' : "Knowledge base search",
+        'contact_docs': "Contat form & knowledge base"
+    }})
+}}
+
+{{ forms.colorField({
+    label: "Beacon Color"|t,
+    id: 'beaconColor',
+    name: 'beaconColor',
+    value: settings['beaconColor']
+    })
+}}
+
+{{ forms.textareaField({
+    label: 'Contact form description'|t,
+    id: 'beaconContactDescription',
+    name: 'beaconContactDescription',
+    value: settings['beaconContactDescription'],
+    rows: '2'
+    })
+}}
+
