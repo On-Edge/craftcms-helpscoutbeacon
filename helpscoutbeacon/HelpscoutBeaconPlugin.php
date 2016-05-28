@@ -231,16 +231,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
     public function getSettingsHtml()
     {
        return craft()->templates->render('helpscoutbeacon/_index', array(
-           'settings' => $this->getSettings(),
-           'selectedTab' => 'config',
-           'tabs' => array(
-            'config' => array(
-                'label' => Craft::t('Configuration'),
-                'url' => '#config'),
-            'display' => array(
-                'label' => Craft::t('Display settings'),
-                'url' => '#display')
-            )
+           'settings' => $this->getSettings()
        ));
     }
 
