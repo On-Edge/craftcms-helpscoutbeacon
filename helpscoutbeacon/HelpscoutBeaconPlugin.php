@@ -51,7 +51,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
             var allowedAttachments = true;
             var selectedIcon = "message";
             var beaconColour = "' . $settings->beaconColor . '";
-            var formInstructions = "";
+            var formInstructions = "' . $settings->beaconContactDescription . '";
             var beaconOptions = "' . $settings->beaconOptions . '";
             
             if(beaconOptions === "knowledgebase" || beaconOptions === "contact_docs") { var enableDocs = 1; } else { var enableDocs = 0; }
@@ -217,6 +217,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
             'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => ''),
             'beaconOptions' => array(AttributeType::Mixed, 'label' => 'Beacon Options', 'default' => ''),
             'beaconColor' => array(AttributeType::String, 'label' => 'Beacon Color', 'default' => "DA513D"),
+            'beaconContactDescription' => array(AttributeType::String, 'Contact form description')
         );
     }
 
