@@ -116,10 +116,10 @@ class HelpscoutBeaconPlugin extends BasePlugin
      *
      * @return string
      */
-//    public function getDocumentationUrl()
-//    {
-//        return 'https://github.com/janhenckens/helpscoutbeacon/blob/master/README.md';
-//    }
+    public function getDocumentationUrl()
+    {
+        return 'https://github.com/On-Edge/craftcms-helpscoutbeacon/blob/master/README.md';
+    }
 
 
 
@@ -153,7 +153,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
      */
     public function getDeveloper()
     {
-        return 'Jan Henckens';
+        return 'On Edge';
     }
 
     /**
@@ -163,7 +163,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
      */
     public function getDeveloperUrl()
     {
-        return 'http://janhenckens.com';
+        return 'http://onedge.be';
     }
 
     /**
