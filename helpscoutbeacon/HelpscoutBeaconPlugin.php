@@ -131,7 +131,7 @@ class HelpscoutBeaconPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return 'https://raw.githubusercontent.com/On-Edge/craftcms-helpscoutbeacon/master/releases.json';
+        return 'https://raw.githubusercontent.com/On-Edge/craftcms-helpscoutbeacon/master/helpscoutbeacon/releases.json';
     }
 
     /**
