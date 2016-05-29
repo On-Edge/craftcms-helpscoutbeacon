@@ -122,6 +122,17 @@ class HelpscoutBeaconPlugin extends BasePlugin
     }
 
 
+    /**
+     * Plugins can now take part in Craft’s update notifications, and display release notes on the Updates page, by
+     * providing a JSON feed that describes new releases, and adding a getReleaseFeedUrl() method on the primary
+     * plugin class.
+     *
+     * @return string
+     */
+    public function getReleaseFeedUrl()
+    {
+        return 'https://raw.githubusercontent.com/On-Edge/craftcms-helpscoutbeacon/master/releases.json';
+    }
 
     /**
      * Returns the version number.
