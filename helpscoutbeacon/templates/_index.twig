@@ -16,6 +16,7 @@
 {% requireAdmin %}
 
 {% import "_includes/forms" as forms %}
+{% includeJsResource 'js/craft.js' %}
 
 {% includeCssResource "helpscoutbeacon/css/HelpscoutBeacon_Style.css" %}
 {% includeJsResource "helpscoutbeacon/js/HelpscoutBeacon_Script.js" %}
@@ -80,7 +81,17 @@
                 id: 'beaconContactDescription',
                 name: 'beaconContactDescription',
                 value: settings['beaconContactDescription'],
-                rows: '2'
+                rows: '2',
+                cols: '10'
+                })
+            }}
+            {{ forms.checkboxField({
+                label: "Allow attachments"|t,
+                instructions: "Enable this to allow attachments in the contact form"|t,
+                id: 'beaconAllowAttachments',
+                name: 'beaconAllowAttachments',
+                value: 'on',
+                checked: settings['beaconAllowAttachments']
                 })
             }}
     </div>

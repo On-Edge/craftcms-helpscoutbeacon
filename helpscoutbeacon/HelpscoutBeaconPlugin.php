@@ -48,13 +48,14 @@ class HelpscoutBeaconPlugin extends BasePlugin
         {
             craft()->templates->includeJs('
             var formId = "'. $settings->beaconFormId . '";
-            var allowedAttachments = true;
+            var allowedAttachments = "'. $settings->beaconAllowAttachments . '";
             var selectedIcon = "message";
             var docsSubdomain = "' . $settings->beaconDocSubdomain . '.helpscout.net";
             var beaconColour = "' . $settings->beaconColor . '";
             var formInstructions = "' . $settings->beaconContactDescription . '";
             var beaconOptions = "' . $settings->beaconOptions . '";
-            
+
+            if(allowedAttachments === "on") { var allowAttachments = 1; } else { var allowAttachments = 0; }
             if(beaconOptions === "knowledgebase" || beaconOptions === "contact_docs") { var enableDocs = 1; } else { var enableDocs = 0; }
             if(beaconOptions === "contact" || beaconOptions === "contact_docs") { var enableContact = 1; } else { var enableContact = 0; }
             
@@ -80,9 +81,10 @@ class HelpscoutBeaconPlugin extends BasePlugin
                 modal: false,
                 icon: selectedIcon,
                 color: beaconColour,
-                attachment: allowedAttachments,
+                attachment: allowAttachments,
                 instructions: formInstructions,
-                poweredBy: false,
+                poweredBy: false
+
             });');
         }
     }
@@ -219,7 +221,8 @@ class HelpscoutBeaconPlugin extends BasePlugin
             'beaconIcon' => array(AttributeType::Mixed, 'label' => 'Beacon Icon', 'default' => "message"),
             'beaconOptions' => array(AttributeType::Mixed, 'label' => 'Beacon Options', 'default' => "contact"),
             'beaconColor' => array(AttributeType::String, 'label' => 'Beacon Color', 'default' => "DA513D"),
-            'beaconContactDescription' => array(AttributeType::String, 'Contact form description')
+            'beaconContactDescription' => array(AttributeType::String, 'label' => 'Contact form description'),
+            'beaconAllowAttachments' => array(AttributeType::String, 'label' => 'Allow attachments')
         );
     }
 
