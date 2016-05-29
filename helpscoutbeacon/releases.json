@@ -1,10 +1,18 @@
 [
     {
         "version": "1.0.0",
-        "downloadUrl": "https://github.com/janhenckens/helpscoutbeacon/archive/master.zip",
+        "downloadUrl": "https://github.com/On-Edge/craftcms-helpscoutbeacon/archive/master.zip",
         "date": "2016-05-26T12:17:19.385Z",
         "notes": [
             "[Added] Initial release"
+        ]
+    },
+    {
+        "version": "1.1.0",
+        "downloadUrl": "https://github.com/On-Edge/craftcms-helpscoutbeacon/archive/master.zip",
+        "date": "2016-05-28T12:17:19.385Z",
+        "notes": [
+            "[Added] Update mechanism test"
         ]
     }
 ]
